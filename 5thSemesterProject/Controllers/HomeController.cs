@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _5thSemesterProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace _5thSemesterProject.Controllers
 {
     public class HomeController : Controller
     {
+        private DB5thSemesterEntities db = new DB5thSemesterEntities();
+
         public ActionResult Index()
         {
             return View();
@@ -25,6 +28,12 @@ namespace _5thSemesterProject.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult Employee()
+        {
+            ViewBag.Message = "Your employee page.";
+
+            return View(db.Employee.ToList());
         }
     }
 }
